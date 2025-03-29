@@ -55,20 +55,26 @@ Right-click on a file or folder in the Explorer or in the editor to access the c
 ## Keyboard Shortcuts
 
 ### Git Commands
-- Show log: `Ctrl+Alt+L`
-- Pull: `Ctrl+Alt+P`
-- Commit: `Ctrl+Alt+C`
-- Push: `Ctrl+Alt+S`
-- Diff: `Ctrl+Alt+D`
-- Revert: `Ctrl+Alt+R`
-- Blame: `Ctrl+Alt+B`
+
+| Command  | Shortcut     |
+| -------- | ------------ |
+| Show log | `Ctrl+Alt+L` |
+| Pull     | `Ctrl+Alt+P` |
+| Commit   | `Ctrl+Alt+C` |
+| Push     | `Ctrl+Alt+S` |
+| Diff     | `Ctrl+Alt+D` |
+| Revert   | `Ctrl+Alt+R` |
+| Blame    | `Ctrl+Alt+B` |
 
 ### SVN Commands
-- Show log: `Alt+L`
-- Update: `Alt+U`
-- Commit: `Alt+C`
-- Diff: `Alt+D`
-- Blame: `Alt+B`
+
+| Command  | Shortcut |
+| -------- | -------- |
+| Show log | `Alt+L`  |
+| Update   | `Alt+U`  |
+| Commit   | `Alt+C`  |
+| Diff     | `Alt+D`  |
+| Blame    | `Alt+B`  |
 
 ## Extension Settings
 
