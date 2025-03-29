@@ -1,0 +1,421 @@
+{
+    "name": "versioncontrolhelper",
+    "displayName": "VersionControlHelper",
+    "description": "Adds context menu items to quickly launch external version control programs (Tortoise series app on Windows, Snail series app on macOS)",
+    "version": "0.0.1",
+    "publisher": "seiunzhang",
+    "private": false,
+    "license": "MIT",
+    "icon": "images/versioncontrol.png",
+    "author": {
+        "name": "seiunzhang"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhangyxXyz/VersionControlHelper.git"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "os": [
+        "win32",
+        "darwin"
+    ],
+    "keywords": [
+        "Version Control",
+        "Git",
+        "Git Helper",
+        "TortoiseGit",
+        "SnailGit",
+        "SnailGit Lite",
+        "Svn",
+        "Svn Helper",
+        "TortoiseSVN",
+        "SnailSVN",
+        "SnailSVN Lite",
+        "seiunzhang"
+    ],
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:versioncontrolhelper.pull",
+        "onCommand:versioncontrolhelper.commit",
+        "onCommand:versioncontrolhelper.push",
+        "onCommand:versioncontrolhelper.log",
+        "onCommand:versioncontrolhelper.diff",
+        "onCommand:versioncontrolhelper.revert",
+        "onCommand:versioncontrolhelper.blame",
+        "onCommand:versioncontrolhelper.svn.update",
+        "onCommand:versioncontrolhelper.svn.commit",
+        "onCommand:versioncontrolhelper.svn.log",
+        "onCommand:versioncontrolhelper.svn.diff",
+        "onCommand:versioncontrolhelper.svn.rename",
+        "onCommand:versioncontrolhelper.svn.revert",
+        "onCommand:versioncontrolhelper.svn.blame"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "VersionControlHelper",
+            "properties": {
+                "versioncontrolhelper.gitClient": {
+                    "type": "string",
+                    "enum": [
+                        "none",
+                        "tortoisegit",
+                        "snailgit"
+                    ],
+                    "default": "tortoisegit",
+                    "description": "Select Git client (select 'none' to disable Git menu)",
+                    "enumDescriptions": [
+                        "Disable Git menu",
+                        "TortoiseGit (Windows only)",
+                        "SnailGit or SnailGit Lite (macOS only)"
+                    ]
+                },
+                "versioncontrolhelper.svnClient": {
+                    "type": "string",
+                    "enum": [
+                        "none",
+                        "tortoisesvn",
+                        "snailsvn"
+                    ],
+                    "default": "tortoisesvn",
+                    "description": "Select SVN client (select 'none' to disable SVN menu)",
+                    "enumDescriptions": [
+                        "Disable SVN menu",
+                        "TortoiseSVN (Windows only)",
+                        "SnailSVN or SnailSVN Lite (macOS only)"
+                    ]
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "versioncontrolhelper.pull",
+                "title": "Pull"
+            },
+            {
+                "command": "versioncontrolhelper.commit",
+                "title": "Commit"
+            },
+            {
+                "command": "versioncontrolhelper.push",
+                "title": "Push"
+            },
+            {
+                "command": "versioncontrolhelper.log",
+                "title": "Show log"
+            },
+            {
+                "command": "versioncontrolhelper.diff",
+                "title": "Diff"
+            },
+            {
+                "command": "versioncontrolhelper.revert",
+                "title": "Revert"
+            },
+            {
+                "command": "versioncontrolhelper.blame",
+                "title": "Blame"
+            },
+            {
+                "command": "versioncontrolhelper.svn.update",
+                "title": "SVN Update"
+            },
+            {
+                "command": "versioncontrolhelper.svn.commit",
+                "title": "SVN Commit"
+            },
+            {
+                "command": "versioncontrolhelper.svn.log",
+                "title": "Show log"
+            },
+            {
+                "command": "versioncontrolhelper.svn.diff",
+                "title": "Diff with previous version"
+            },
+            {
+                "command": "versioncontrolhelper.svn.rename",
+                "title": "Rename"
+            },
+            {
+                "command": "versioncontrolhelper.svn.revert",
+                "title": "Revert"
+            },
+            {
+                "command": "versioncontrolhelper.svn.blame",
+                "title": "Blame"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "versioncontrolhelper.pull",
+                "key": "ctrl+alt+p",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.commit",
+                "key": "ctrl+alt+c",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.push",
+                "key": "ctrl+alt+s",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.log",
+                "key": "ctrl+alt+l",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.diff",
+                "key": "ctrl+alt+d",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.revert",
+                "key": "ctrl+alt+r",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.blame",
+                "key": "ctrl+alt+b",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.svn.update",
+                "key": "alt+u",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.svn.commit",
+                "key": "alt+c",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.svn.log",
+                "key": "alt+l",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.svn.diff",
+                "key": "alt+d",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "versioncontrolhelper.svn.blame",
+                "key": "alt+b",
+                "when": "editorTextFocus"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "submenu": "context.versioncontrolhelper.tortoisegit",
+                    "when": "editorFocus && config.versioncontrolhelper.gitClient == 'tortoisegit'",
+                    "group": "2_workspace@1"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.snailgit",
+                    "when": "editorFocus && config.versioncontrolhelper.gitClient == 'snailgit'",
+                    "group": "2_workspace@1"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.tortoisesvn",
+                    "when": "editorFocus && config.versioncontrolhelper.svnClient == 'tortoisesvn'",
+                    "group": "2_workspace@2"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.snailsvn",
+                    "when": "editorFocus && config.versioncontrolhelper.svnClient == 'snailsvn'",
+                    "group": "2_workspace@2"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "submenu": "context.versioncontrolhelper.tortoisegit",
+                    "when": "config.versioncontrolhelper.gitClient == 'tortoisegit'",
+                    "group": "2_workspace@1"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.snailgit",
+                    "when": "config.versioncontrolhelper.gitClient == 'snailgit'",
+                    "group": "2_workspace@1"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.tortoisesvn",
+                    "when": "config.versioncontrolhelper.svnClient == 'tortoisesvn'",
+                    "group": "2_workspace@2"
+                },
+                {
+                    "submenu": "context.versioncontrolhelper.snailsvn",
+                    "when": "config.versioncontrolhelper.svnClient == 'snailsvn'",
+                    "group": "2_workspace@2"
+                }
+            ],
+            "context.versioncontrolhelper.tortoisegit": [
+                {
+                    "command": "versioncontrolhelper.log",
+                    "group": "gitSub@1"
+                },
+                {
+                    "command": "versioncontrolhelper.pull",
+                    "group": "gitSub@2"
+                },
+                {
+                    "command": "versioncontrolhelper.commit",
+                    "group": "gitSub@3"
+                },
+                {
+                    "command": "versioncontrolhelper.push",
+                    "group": "gitSub@4"
+                },
+                {
+                    "command": "versioncontrolhelper.diff",
+                    "group": "gitSub@5"
+                },
+                {
+                    "command": "versioncontrolhelper.revert",
+                    "group": "gitSub@6"
+                },
+                {
+                    "command": "versioncontrolhelper.blame",
+                    "group": "gitSub@7"
+                }
+            ],
+            "context.versioncontrolhelper.snailgit": [
+                {
+                    "command": "versioncontrolhelper.log",
+                    "group": "gitSub@1"
+                },
+                {
+                    "command": "versioncontrolhelper.pull",
+                    "group": "gitSub@2"
+                },
+                {
+                    "command": "versioncontrolhelper.commit",
+                    "group": "gitSub@3"
+                },
+                {
+                    "command": "versioncontrolhelper.push",
+                    "group": "gitSub@4"
+                },
+                {
+                    "command": "versioncontrolhelper.diff",
+                    "group": "gitSub@5"
+                },
+                {
+                    "command": "versioncontrolhelper.revert",
+                    "group": "gitSub@6"
+                },
+                {
+                    "command": "versioncontrolhelper.blame",
+                    "group": "gitSub@7"
+                }
+            ],
+            "context.versioncontrolhelper.tortoisesvn": [
+                {
+                    "command": "versioncontrolhelper.svn.log",
+                    "group": "svnSub@1"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.update",
+                    "group": "svnSub@2"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.commit",
+                    "group": "svnSub@3"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.diff",
+                    "group": "svnSub@4"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.rename",
+                    "group": "svnSub@5"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.revert",
+                    "group": "svnSub@6"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.blame",
+                    "group": "svnSub@7"
+                }
+            ],
+            "context.versioncontrolhelper.snailsvn": [
+                {
+                    "command": "versioncontrolhelper.svn.log",
+                    "group": "svnSub@1"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.update",
+                    "group": "svnSub@2"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.commit",
+                    "group": "svnSub@3"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.diff",
+                    "group": "svnSub@4"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.rename",
+                    "group": "svnSub@5"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.revert",
+                    "group": "svnSub@6"
+                },
+                {
+                    "command": "versioncontrolhelper.svn.blame",
+                    "group": "svnSub@7"
+                }
+            ]
+        },
+        "submenus": [
+            {
+                "id": "context.versioncontrolhelper.tortoisegit",
+                "label": "TortoiseGit"
+            },
+            {
+                "id": "context.versioncontrolhelper.snailgit",
+                "label": "SnailGit"
+            },
+            {
+                "id": "context.versioncontrolhelper.tortoisesvn",
+                "label": "TortoiseSVN"
+            },
+            {
+                "id": "context.versioncontrolhelper.snailsvn",
+                "label": "SnailSVN"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src",
+        "test": "vscode-test",
+        "package": "vsce package --out ./release",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.60.0",
+        "@typescript-eslint/eslint-plugin": "^8.28.0",
+        "@typescript-eslint/parser": "^8.28.0",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1",
+        "@vscode/vsce": "^2.24.0",
+        "eslint": "^9.23.0",
+        "typescript": "^5.8.2"
+    }
+}
