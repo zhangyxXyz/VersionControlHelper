@@ -2,7 +2,7 @@
     "name": "versioncontrolhelper",
     "displayName": "VersionControlHelper",
     "description": "Adds context menu items to quickly launch external version control programs (Tortoise series app on Windows, Snail series app on macOS)",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "seiunzhang",
     "private": false,
     "license": "MIT",
@@ -403,7 +403,7 @@
         "pretest": "npm run compile && npm run lint",
         "lint": "eslint src",
         "test": "vscode-test",
-        "package": "vsce package --out ./release",
+        "package": "vsce package --out ./release/versioncontrolhelper.vsix",
         "publish": "vsce publish"
     },
     "devDependencies": {

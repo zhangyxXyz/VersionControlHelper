@@ -1,5 +1,9 @@
 ## Release Notes
 
+### 0.0.2
+
+- Ignore test files when packaging
+
 ### 0.0.1
 
 - Initial release
